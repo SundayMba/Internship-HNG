@@ -12,3 +12,12 @@ def greeting():
         "greeting": "Hello, {}!".format(visitor_name.strip('"'))
     }
     return jsonify(response)
+
+@app.route("/")
+def index():
+    return jsonify({
+        "Message": "Welcome to Home Page"
+    })
+
+if __name__ == '__main__':
+    app.run()
