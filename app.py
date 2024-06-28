@@ -8,7 +8,7 @@ CORS(app, supports_credentials=True)
 def greeting():
     # Get client IP address, considering proxies and load balancers
     if request.headers.getlist("X-Forwarded-For"):
-        client_ip = request.headers.getlist("X-Forwarded-For")[0]
+        client_ip = request.headers.getlist("X-Forwarded-For")[0].strip(',')[0].strip()
     else:
         client_ip = request.remote_addr
     visitor_name = request.args.get("visitor_name", default='Guest', type=str)
