@@ -6,9 +6,14 @@ CORS(app, supports_credentials=True)
 
 @app.route("/api/hello")
 def greeting():
+    # Get client IP address, considering proxies and load balancers
+    if request.headers.getlist("X-Forwarded-For"):
+        client_ip = request.headers.getlist("X-Forwarded-For")[0]
+    else:
+        client_ip = request.remote_addr
     visitor_name = request.args.get("visitor_name", default='Guest', type=str)
     response = {
-        "client_ip": request.remote_addr,
+        "client_ip": client_ip,
         "greeting": "Hello, {}!".format(visitor_name.strip('"'))
     }
     return jsonify(response)
