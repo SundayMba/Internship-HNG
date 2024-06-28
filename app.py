@@ -18,6 +18,3 @@ def index():
     return jsonify({
         "Message": "Welcome to Home Page"
     })
-
-if __name__ == '__main__':
-    app.run()
