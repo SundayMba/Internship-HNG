@@ -22,7 +22,7 @@ def greeting():
     response = {
         "client_ip": client_ip,
         "location": city,
-        "greeting": "Hello, {}!, the temperature is {} degree celcius in {}.".format(visitor_name.strip('"'), city, temp)
+        "greeting": "Hello, {}!, the temperature is {} degree celcius in {}.".format(visitor_name.strip('"'), temp, city)
     }
     return jsonify(response)
 
