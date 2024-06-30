@@ -35,5 +35,5 @@ def get_client_city(ip_address):
         response = requests.get(url, params).json()
         city = response.get("city")
     except:
-        city = "california"
-    return response
+        city = "Aba"
+    return city
