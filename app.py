@@ -36,4 +36,4 @@ def get_client_city(ip_address):
         city = response.get("city")
     except:
         city = "california"
-    return city
+    return response
