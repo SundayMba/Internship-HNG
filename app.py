@@ -13,10 +13,11 @@ def greeting():
     else:
         client_ip = request.remote_addr
     visitor_name = request.args.get("visitor_name", default='Guest', type=str)
+    city = get_client_city(client_ip)
     response = {
         "client_ip": client_ip,
-        "location": get_client_city(client_ip),
-        "greeting": "Hello, {}!, the temperature is 11 degrees celcius in new York.".format(visitor_name.strip('"'))
+        "location": city,
+        "greeting": "Hello, {}!, the temperature is 20 degree celcius in {}.".format(visitor_name.strip('"'), city)
     }
     return jsonify(response)
 
