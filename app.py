@@ -27,7 +27,7 @@ def index():
     })
 
 def get_client_city(ip_address):
-    url = "https://ipinfo.io"
+    url = f"https://ipinfo.io/{ip_address}"
     params = {
         "token": "6a11f15ed06812"
     }
